@@ -1,3 +1,4 @@
+#MERCURY III
 import os
 import numpy as np
 import logging
@@ -28,10 +29,11 @@ def main():
     if load_flag == True:
         try:
             print('Loading saved model')
-            dense_model.load(".\saved_models\\M2.h5")
+            dense_model.load(".\saved_models\\run20.h5")
             results = dense_model.model.evaluate(test_dataset,steps=int(num_test_samples/(config.model.batch_size)))
             print('test loss, test acc:', results)
         except Exception as ex:
+            print(ex)
             print("Invalid model file name provided")
 
     # build and train and save a new model
