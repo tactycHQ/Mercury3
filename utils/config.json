@@ -1,0 +1,19 @@
+{
+  "experiment":{
+    "load":true,
+    "window": 45,
+    "threshold": 0.035
+  },
+  "model": {
+    "shuffle": 200,
+    "epochs": 80,
+    "batch_size":64,
+    "layer1": 256,
+    "layer2":128,
+    "layer3": 3,
+    "lr": 0.001,
+    "val_split": 0.2,
+    "loss_fn": "categorical_crossentropy",
+    "metrics": "acc"
+  }
+}
