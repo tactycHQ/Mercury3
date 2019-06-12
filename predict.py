@@ -40,6 +40,7 @@ targets_ohe = ohe.fit_transform(targets).toarray()
 sc = StandardScaler()
 sc.fit(df.values)
 x_pred = sc.transform(df.values)
+np.savetxt(".\\x_pred.csv",x_pred, delimiter=",")
 
 dense_model =load_model("C:\\Users\\anubhav\\Desktop\\Projects\\Mercury2\\saved_models\\run17.h5")
 pred = dense_model.predict(x_pred)
