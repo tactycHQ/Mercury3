@@ -8,8 +8,12 @@ payload={
     "instances":[{'dense_input':x_list}]
 }
 
-r = requests.post('http://localhost:8501/v1/models/mercury:predict',json = payload)
-x = r.content
-print(x)
+response = requests.post('http://localhost:8501/v1/models/mercury:predict',json = payload)
+print(response)
+predictions = response.json()['predictions'][0]
+
+print(predictions)
+
+
 
 
