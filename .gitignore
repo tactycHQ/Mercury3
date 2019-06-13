@@ -1,6 +1,6 @@
 
 /outputs/
-/utils/csv/impt.csv
+/utils/csv_logs/impt.csv
 .idea/
 data_loader/__pycache__/__init__.cpython-37.pyc
 data_loader/__pycache__/m1_data_loader.cpython-35.pyc
@@ -10,6 +10,6 @@ models/__pycache__/
 saved_models/
 trainer/__pycache__/
 utils/impt
-utils/csv/impt.csv
+utils/csv_logs/impt.csv
 data_loader/__pycache__/__init__.cpython-35.pyc
-utils/csv/
+utils/csv_logs/

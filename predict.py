@@ -46,9 +46,6 @@ dense_model =load_model("C:\\Users\\anubhav\\Desktop\\Projects\\Mercury2\\saved_
 pred = dense_model.predict(x_pred)
 np.savetxt("pred.csv",pred,delimiter=",")
 
-
-
-
 print("prices:\n",prices)
 print("priceReturns:\n",priceReturns)
 print("bmarkReturns:\n",bmarkReturns)

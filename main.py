@@ -13,6 +13,7 @@ from tensorflow.data import Dataset
 
 # GLOBAL VARIABLES
 mypath = "D:\\Dropbox\\9. Data\\Mercury Data\\CSV"
+model_version = "run17.h5"
 
 def main():
     # Processing config file
@@ -29,9 +30,7 @@ def main():
     if load_flag == True:
         try:
             print('Loading saved model')
-            dense_model.load(".\saved_models\\run2"
-
-
+            dense_model.load(".\\h5 models\\"+model_version)
             results = dense_model.model.evaluate(test_dataset,steps=int(num_test_samples/(config.model.batch_size)))
             print('test loss, test acc:', results)
         except Exception as ex:
@@ -52,7 +51,7 @@ def main():
                               )
             print('Start training the model.')
             trainer.train()
-            dense_model.save(".\saved_models\\M2.h5")
+            dense_model.save(".\\h5_models\\"+model_version)
         except Exception as ex:
             print(ex)
             print("Unable to create new model")
@@ -117,5 +116,5 @@ def getData(mypath, config):
 
 if __name__ == '__main__':
     main()
-    os.system("tensorboard --logdir=.\\logs\\")
+    # os.system("tensorboard --logdir=.\\logs\\")
 

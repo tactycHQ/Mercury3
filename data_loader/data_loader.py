@@ -57,7 +57,7 @@ class DataLoader:
         self.createTargets()
 
         #save summary of all features to csv
-        df.describe(include='all').to_csv(".\\utils\\csv\\all_features.csv")
+        df.describe(include='all').to_csv(".\\utils\\csv_logs\\all_features.csv")
         logging.info("All Features List Saved Under all_features.csv")
 
         return df

@@ -6,7 +6,7 @@
   },
   "model": {
     "shuffle": 200,
-    "epochs": 80,
+    "epochs": 1,
     "batch_size":64,
     "layer1": 256,
     "layer2":128,
