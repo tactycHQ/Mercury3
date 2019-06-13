@@ -2,16 +2,13 @@ import requests
 import json
 import numpy as np
 
-x_pred = np.loadtxt(".\\test_data\\x_pred.csv",delimiter=",")
-x_list = x_pred.tolist()
+toPredict = np.loadtxt(".\\test_data\\predict_from_server.csv",delimiter=",")
+toPredict_list = toPredict.tolist()
 payload={
-    "instances":[{'dense_input':x_list}]
+    "instances":[{'dense_input':toPredict_list}]
 }
-
 response = requests.post('http://localhost:8501/v1/models/mercury:predict',json = payload)
-print(response)
 predictions = response.json()['predictions'][0]
-
 print(predictions)
 
 
