@@ -6,13 +6,13 @@ from tensorflow.keras.models import load_model
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 
 #GLOBAL VARIABLES
-predict_path = "D:\\Dropbox\\9. Data\\Mercury Data\\XLS\\predict\\CIQ_AAPL_predict.csv"
+data_path = "D:\\Dropbox\\9. Data\\Mercury Data\\XLS\\predict\\CIQ_AAPL_predict.csv"
 model_path = "C:\\Users\\anubhav\\Desktop\\Projects\\Mercury2\\saved_models\\run17.h5"
 window=45
 threshold=0.035
 
-def load_data(predict_path):
-    df = pd.read_csv(predict_path,low_memory=False)
+def load_data(data_path):
+    df = pd.read_csv(data_path,low_memory=False)
     df = df.drop(['DATE'],axis=1)
     return df
 
@@ -67,7 +67,7 @@ def predict_results(model_path):
     return pred_results
 
 if __name__ == '__main__':
-    df = load_data(predict_path)
+    df = load_data(data_path)
     targets_ohe = process_data(df)
     x_pred = normalize_data(df)
     pred_results = predict_results(model_path)
