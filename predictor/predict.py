@@ -5,14 +5,15 @@ from data_loader.data_loader import DataLoader
 from tensorflow.keras.models import load_model
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 
+
 #GLOBAL VARIABLES
-data_path = "D:\\Dropbox\\9. Data\\Mercury Data\\XLS\\predict\\CIQ_AAPL_predict.csv"
-model_path = "C:\\Users\\anubhav\\Desktop\\Projects\\Mercury2\\saved_models\\run17.h5"
+data_path = "..//test_data//temp_predict.csv"
+model_path = "..//h5 models//run17.h5"
 window=45
 threshold=0.035
 
 def load_data(data_path):
-    df = pd.read_csv(data_path,low_memory=False)
+    df = pd.read_csv(data_path,low_memory=False,skip_blank_lines=True)
     df = df.drop(['DATE'],axis=1)
     return df
 
@@ -55,21 +56,21 @@ def normalize_data(df):
     sc = StandardScaler()
     sc.fit(df.values)
     x_pred = sc.transform(df.values)
-    np.savetxt(".\\x_pred.csv", x_pred, delimiter=",")
     return x_pred
 
 
 def predict_results(model_path):
     dense_model =load_model(model_path)
     pred_results = dense_model.predict(x_pred)
-    np.savetxt(".\\test_data\\prediction_results.csv",pred_results,delimiter=",")
+    np.savetxt("..//test_data//prediction_results.csv",pred_results,delimiter=",")
     print("pred:\n", pred_results)
     return pred_results
 
 if __name__ == '__main__':
     df = load_data(data_path)
-    targets_ohe = process_data(df)
+    # targets_ohe = process_data(df)
     x_pred = normalize_data(df)
+    print(x_pred)
     pred_results = predict_results(model_path)
 
 
